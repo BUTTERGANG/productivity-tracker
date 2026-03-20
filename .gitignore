@@ -1,0 +1,1 @@
+# Dependencies\n/node_modules\n\n# Build output\n/dist\n\n# Log files\n*.log\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n\n# Env files\n.env\n.env.local\n
