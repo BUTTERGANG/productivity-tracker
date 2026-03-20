@@ -1,0 +1,170 @@
+.contribution-grid-wrapper {
+  --cell-size: 15px;
+  --cell-gap: 4px;
+  --label-width: 32px;
+  --label-gap: 8px;
+  overflow-x: auto;
+  padding: 20px 0;
+  user-select: none;
+}
+
+.month-labels {
+  display: flex;
+  margin-bottom: 4px;
+  gap: var(--cell-gap);
+  padding-left: calc(var(--label-width) + var(--label-gap));
+}
+
+.day-label-spacer {
+  display: none;
+}
+
+.month-cell {
+  width: var(--cell-size);
+  font-size: 11px;
+  color: #8b949e;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.grid-body {
+  display: flex;
+}
+
+.day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-gap);
+  margin-right: var(--label-gap);
+  width: var(--label-width);
+  flex-shrink: 0;
+}
+
+.day-label {
+  height: var(--cell-size);
+  font-size: 10px;
+  color: #8b949e;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: color 0.15s ease;
+}
+
+.day-label.hovered {
+  color: #f0f6fc;
+}
+
+.grid-columns {
+  display: flex;
+  gap: var(--cell-gap);
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-gap);
+}
+
+.grid-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, outline 0.15s ease;
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.grid-cell:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  transform: scale(1.25);
+  z-index: 1;
+}
+
+.grid-cell:focus-visible {
+  outline: 2px solid rgba(88, 166, 255, 0.85);
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.grid-cell.row-hovered {
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+}
+
+.grid-column.hovered::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 6px;
+  background: rgba(88, 166, 255, 0.08);
+  z-index: 0;
+}
+
+.grid-column.hovered {
+  position: relative;
+}
+
+.grid-cell.empty {
+  visibility: hidden;
+}
+
+.grid-cell.selected {
+  outline: 2px solid #58a6ff;
+  transform: scale(1.25);
+  z-index: 1;
+}
+
+.grid-cell.today {
+  outline: 2px solid #f0f6fc;
+}
+
+.grid-cell.bulk-selected {
+  outline: 2px solid #58a6ff;
+  transform: scale(1.15);
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.grid-tooltip {
+  position: fixed;
+  background: #1c2128;
+  color: #f0f6fc;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  z-index: 300;
+  pointer-events: none;
+  min-width: 160px;
+}
+
+.grid-tooltip-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.grid-tooltip-line {
+  font-size: 11px;
+  color: #8b949e;
+}
+
+/* Multi-color scheme */
+.grid-cell.level-0 {
+  background-color: var(--heatmap-0);
+}
+
+.grid-cell.level-1 {
+  background-color: var(--heatmap-1);
+}
+
+.grid-cell.level-2 {
+  background-color: var(--heatmap-2);
+}
+
+.grid-cell.level-3 {
+  background-color: var(--heatmap-3);
+}
+
+.grid-cell.level-4 {
+  background-color: var(--heatmap-4);
+}

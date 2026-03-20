@@ -1,0 +1,147 @@
+.month-grid-wrapper {
+  padding: 8px 0 16px;
+}
+
+.month-grid-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.month-grid-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+.month-nav-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+@media (max-width: 640px) {
+  .month-nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .month-day {
+    min-height: 48px;
+  }
+
+  .month-grid {
+    gap: 8px;
+  }
+}
+
+.month-nav-btn:hover {
+  color: #f0f6fc;
+  border-color: #58a6ff;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.month-day-header {
+  font-size: 11px;
+  color: #8b949e;
+  text-align: center;
+  padding: 4px 0 8px;
+  font-weight: 600;
+}
+
+.month-day-pad {
+  /* empty spacer */
+}
+
+.month-day {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, outline 0.15s;
+  gap: 2px;
+  position: relative;
+}
+
+.month-day:hover {
+  transform: scale(1.06);
+  outline: 2px solid rgba(255,255,255,0.3);
+}
+
+.month-day:focus-visible {
+  outline: 2px solid rgba(88, 166, 255, 0.85);
+  transform: scale(1.04);
+}
+
+.month-day.today {
+  outline: 2px solid #f0f6fc;
+}
+
+.month-day.level-0 { background: var(--heatmap-0); }
+.month-day.level-1 { background: var(--heatmap-1); }
+.month-day.level-2 { background: var(--heatmap-2); }
+.month-day.level-3 { background: var(--heatmap-3); }
+.month-day.level-4 { background: var(--heatmap-4); }
+
+.month-day-num {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f0f6fc;
+  line-height: 1;
+}
+
+.month-day.level-0 .month-day-num { color: #484f58; }
+
+.month-day-count {
+  font-size: 10px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1;
+}
+
+.month-day.level-0 .month-day-count { color: #484f58; }
+
+/* Legend */
+.month-grid-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  justify-content: flex-end;
+}
+
+.month-grid-legend .legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.month-grid-legend .legend-dot.level-0 { background: var(--heatmap-0); outline: 1px solid var(--heatmap-outline, #30363d); }
+.month-grid-legend .legend-dot.level-1 { background: var(--heatmap-1); }
+.month-grid-legend .legend-dot.level-2 { background: var(--heatmap-2); }
+.month-grid-legend .legend-dot.level-3 { background: var(--heatmap-3); }
+.month-grid-legend .legend-dot.level-4 { background: var(--heatmap-4); }
+
+.month-legend-label {
+  font-size: 11px;
+  color: #8b949e;
+  margin-left: 4px;
+}

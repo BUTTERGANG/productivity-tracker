@@ -1,0 +1,39 @@
+.year-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.year-display {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f0f6fc;
+  min-width: 48px;
+  text-align: center;
+}
+
+.year-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.year-btn:hover:not(:disabled) {
+  color: #f0f6fc;
+  border-color: #58a6ff;
+}
+
+.year-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
