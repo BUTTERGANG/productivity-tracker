@@ -30,6 +30,7 @@ function App({ themeMode, onThemeToggle }) {
   const [activeView, setActiveView] = useState('grid')
   const [searchQuery, setSearchQuery] = useState('')
   const [undoToast, setUndoToast] = useState(null) // { taskName }
+  const [importError, setImportError] = useState(null)
   const [importPreview, setImportPreview] = useState(null)
   const [pendingImport, setPendingImport] = useState(null)
   const importPreviewRef = useRef(null)
@@ -152,8 +153,11 @@ function App({ themeMode, onThemeToggle }) {
         setPendingImport({ tasks: incomingTasks, notes: incomingNotes })
         setImportPreview(summary)
       } catch {
-        alert('Invalid file. Please use a file exported from this app.')
+        setImportError('Invalid file. Please use a file exported from this app.')
       }
+    }
+    reader.onerror = () => {
+      setImportError('Could not read the file. Please try again.')
     }
     reader.readAsText(file)
     e.target.value = ''
@@ -343,6 +347,13 @@ function App({ themeMode, onThemeToggle }) {
           message={`Deleted "${undoToast.taskName}"`}
           onUndo={handleUndo}
           onDismiss={() => { clearTimeout(undoRef.current?.timeoutId); undoRef.current = null; setUndoToast(null) }}
+        />
+      )}
+
+      {importError && (
+        <UndoToast
+          message={importError}
+          onDismiss={() => setImportError(null)}
         />
       )}
 

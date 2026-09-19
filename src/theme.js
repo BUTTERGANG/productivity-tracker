@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles'
+import { CATEGORIES } from './constants'
 
 const heatmap = {
   level0: 'var(--heatmap-0)',
@@ -13,10 +14,10 @@ export function getTheme(mode = 'dark') {
   return createTheme({
     palette: {
       mode,
-      primary: { main: '#58a6ff' },
-      secondary: { main: '#bc8cff' },
-      success: { main: '#3fb950' },
-      warning: { main: '#f78166' },
+      primary: { main: CATEGORIES.work.color },
+      secondary: { main: CATEGORIES.personal.color },
+      success: { main: CATEGORIES.health.color },
+      warning: { main: CATEGORIES.learning.color },
       background: {
         default: isDark ? '#0d1117' : '#f6f8fa',
         paper: isDark ? '#161b22' : '#ffffff',
@@ -47,6 +48,10 @@ export function getTheme(mode = 'dark') {
             '--heatmap-2': '#e8b730',
             '--heatmap-3': '#5fb85a',
             '--heatmap-4': '#39d353',
+            '--text-primary': isDark ? '#f0f6fc' : '#1f2328',
+            '--text-secondary': isDark ? '#8b949e' : '#57606a',
+            '--border-color': isDark ? '#30363d' : '#d0d7de',
+            '--surface-color': isDark ? '#1c2128' : '#ffffff',
           },
           body: {
             backgroundColor: isDark ? '#0d1117' : '#f6f8fa',
